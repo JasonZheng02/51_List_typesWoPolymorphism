@@ -46,10 +46,18 @@ public class List_inArraySlots {
        in [a,b,c,] format
       */
     public String toString() {
-        String result = "[";
+	String result = "[";
         for( int index = 0; index < filledElements; index++)
-            result += typeOfElements[index] + ",";
-        return result + "]";
+		if (typeOfElements[index] == 0) {
+			result += intElements[index] + ",";
+	    	}
+		else if (typeOfElements[index] == 1) {
+			result += doubleElements[index] + ",";
+		}
+		else {
+			result += stringElements[index] + ",";
+	}
+	return result + "]";
     }
 
 

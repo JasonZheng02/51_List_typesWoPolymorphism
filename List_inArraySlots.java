@@ -40,23 +40,22 @@ public class List_inArraySlots {
         return filledElements;
     }
 
-
+    public Element get( int index ) {
+        Element element = new Element(typeOfElements[index],
+                                      intElements[index],
+                                      doubleElements[index],
+                                      stringElements[index]);
+        return element;
+    }
+        
      /**
        @return a string representation of this list,
        in [a,b,c,] format
       */
     public String toString() {
 	String result = "[";
-        for( int index = 0; index < filledElements; index++)
-		if (typeOfElements[index] == 0) {
-			result += intElements[index] + ",";
-	    	}
-		else if (typeOfElements[index] == 1) {
-			result += doubleElements[index] + ",";
-		}
-		else {
-			result += stringElements[index] + ",";
-	}
+    for( int index = 0; index < filledElements; index++)
+        result += get(index) + ",";
 	return result + "]";
     }
 
@@ -96,8 +95,8 @@ public class List_inArraySlots {
             */
         int[] biggerType = new int[ typeOfElements.length * 2];
         int[] biggerInt = new int[ intElements.length * 2];
-	double[] biggerDouble = new double[ doubleElements.length * 2];
-	String[] biggerString = new String[ stringElements.length * 2];
+        double[] biggerDouble = new double[ doubleElements.length * 2];
+        String[] biggerString = new String[ stringElements.length * 2];
 
 	for( int index = 0; index < filledElements; index++){
 		biggerType[index] = typeOfElements[index];
